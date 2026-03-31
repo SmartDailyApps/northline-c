@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyGoldFolio — Gold Investment Tracker for Android</title>
+  <meta name="description" content="Track every gram of gold you own. Live EUR/gram prices, break-even analysis, tax countdown, smart scenarios, FIFO/LIFO sells. 100% offline, no cloud." />
+  <meta property="og:title" content="MyGoldFolio — Gold Investment Tracker" />
+  <meta property="og:description" content="Track gold holdings with live prices, P&L, tax countdown, smart scenarios. 100% offline." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="/images/icon.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#0F0F1A',
+            'navy-light': '#1A1A2E',
+            card: '#16213E',
+            border: '#1E3A5C',
+            gold: '#D4A843',
+            amber: '#FFE27A',
+            mint: '#00D68F',
+            coral: '#FF4757',
+            muted: '#666677',
+            purple: '#A78BFA',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    .gold-glow { text-shadow: 0 0 40px rgba(212,168,67,0.3); }
+    .card-hover { transition: transform 0.2s, box-shadow 0.2s; }
+    .card-hover:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(212,168,67,0.12); }
+    .screenshot-scroll { scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+    .screenshot-scroll > * { scroll-snap-align: center; }
+    .feature-icon { width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+  </style>
+</head>
+<body class="bg-navy text-gray-200">
+
+  <!-- Nav -->
+  <nav class="border-b border-border/30 backdrop-blur-sm bg-navy/80 sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <span class="text-lg font-extrabold text-white">Smart<span class="text-gold">Daily</span>Apps</span>
+      </a>
+      <div class="flex items-center gap-6 text-sm">
+        <a href="/mygoldfolio/" class="text-gold font-bold">MyGoldFolio</a>
+        <a href="/mygoldfolio/feedback/" class="text-gray-400 hover:text-gold transition">Feedback</a>
+        <a href="/contact/" class="text-gray-400 hover:text-gold transition">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="px-6 pt-16 pb-12 text-center">
+    <div class="max-w-3xl mx-auto">
+      <img src="/images/icon.png" alt="MyGoldFolio" class="w-20 h-20 rounded-2xl mx-auto mb-6 shadow-lg shadow-gold/20" />
+      <h1 class="text-4xl md:text-5xl font-black text-white leading-tight mb-4 gold-glow">
+        Track Every Gram<br/>of Gold You Own
+      </h1>
+      <p class="text-gray-400 text-lg max-w-xl mx-auto mb-8">
+        Live prices, break-even analysis, tax countdown, smart what-if scenarios, and FIFO/LIFO sell tracking. All on your device.
+      </p>
+
+      <!-- Privacy badges -->
+      <div class="flex flex-wrap justify-center gap-3 mb-10">
+        <span class="text-xs bg-navy-light border border-border/40 text-gray-300 px-3 py-1.5 rounded-full flex items-center gap-2">
+          <span class="w-1.5 h-1.5 bg-mint rounded-full"></span>100% Offline
+        </span>
+        <span class="text-xs bg-navy-light border border-border/40 text-gray-300 px-3 py-1.5 rounded-full flex items-center gap-2">
+          <span class="w-1.5 h-1.5 bg-mint rounded-full"></span>No Account Required
+        </span>
+        <span class="text-xs bg-navy-light border border-border/40 text-gray-300 px-3 py-1.5 rounded-full flex items-center gap-2">
+          <span class="w-1.5 h-1.5 bg-mint rounded-full"></span>No Ads
+        </span>
+        <span class="text-xs bg-navy-light border border-border/40 text-gray-300 px-3 py-1.5 rounded-full flex items-center gap-2">
+          <span class="w-1.5 h-1.5 bg-gold rounded-full"></span>Free
+        </span>
+      </div>
+
+      <!-- CTA -->
+      <a href="#screenshots" class="inline-flex items-center gap-2 bg-gold text-navy font-bold px-8 py-3.5 rounded-xl hover:bg-amber transition text-sm">
+        See It in Action ↓
+      </a>
+    </div>
+  </section>
+
+  <!-- Screenshots -->
+  <section id="screenshots" class="px-6 py-16">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-xs font-bold tracking-[0.2em] text-gold uppercase text-center mb-10">App Screens</h2>
+      <div class="screenshot-scroll flex gap-6 overflow-x-auto pb-4 px-2">
+        <div class="flex-shrink-0 w-56">
+          <img src="/images/onboarding-portfolio.jpg" alt="Portfolio tracking with P&L and break-even bars" class="w-full rounded-2xl border border-border/30 shadow-lg" loading="lazy" />
+          <p class="text-xs text-muted text-center mt-3">Portfolio Tracking</p>
+        </div>
+        <div class="flex-shrink-0 w-56">
+          <img src="/images/onboarding-scenarios.jpg" alt="What-if scenario table with smart auto-generation" class="w-full rounded-2xl border border-border/30 shadow-lg" loading="lazy" />
+          <p class="text-xs text-muted text-center mt-3">Smart Scenarios</p>
+        </div>
+        <div class="flex-shrink-0 w-56">
+          <img src="/images/onboarding-alerts.jpg" alt="Smart alerts for break-even, price, and tax-free" class="w-full rounded-2xl border border-border/30 shadow-lg" loading="lazy" />
+          <p class="text-xs text-muted text-center mt-3">Smart Alerts</p>
+        </div>
+        <div class="flex-shrink-0 w-56">
+          <img src="/images/onboarding-chart.jpg" alt="Price history bar chart" class="w-full rounded-2xl border border-border/30 shadow-lg" loading="lazy" />
+          <p class="text-xs text-muted text-center mt-3">Price History</p>
+        </div>
+        <div class="flex-shrink-0 w-56">
+          <img src="/images/onboarding-live.jpg" alt="Live gold price with buy and sell rates" class="w-full rounded-2xl border border-border/30 shadow-lg" loading="lazy" />
+          <p class="text-xs text-muted text-center mt-3">Live Market Data</p>
+        </div>
+        <div class="flex-shrink-0 w-56">
+          <img src="/images/onboarding-name.jpg" alt="Personal greeting onboarding" class="w-full rounded-2xl border border-border/30 shadow-lg" loading="lazy" />
+          <p class="text-xs text-muted text-center mt-3">Personalised</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="px-6 py-16">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-xs font-bold tracking-[0.2em] text-gold uppercase text-center mb-12">Features</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <div class="card-hover bg-navy-light border border-border/30 rounded-xl p-6">
+          <div class="feature-icon bg-amber/10 text-amber mb-4">&#9878;</div>
+          <h3 class="text-base font-bold text-white mb-2">Live Gold Price</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">EUR per gram from 3 built-in sources with automatic fallthrough. Buy rate, sell rate, spread — all live.</p>
+        </div>
+
+        <div class="card-hover bg-navy-light border border-border/30 rounded-xl p-6">
+          <div class="feature-icon bg-mint/10 text-mint mb-4">&#9733;</div>
+          <h3 class="text-base font-bold text-white mb-2">Portfolio P&L</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">Track every holding with live profit/loss, return %, break-even price, and tax-free countdown (configurable days).</p>
+        </div>
+
+        <div class="card-hover bg-navy-light border border-border/30 rounded-xl p-6">
+          <div class="feature-icon bg-purple/10 text-purple mb-4">&#9881;</div>
+          <h3 class="text-base font-bold text-white mb-2">Smart Scenarios</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">Auto-generated what-if scenarios based on market trends. 6 trend classes, ATH injection, break-even anchoring.</p>
+        </div>
+
+        <div class="card-hover bg-navy-light border border-border/30 rounded-xl p-6">
+          <div class="feature-icon bg-gold/10 text-gold mb-4">&#128276;</div>
+          <h3 class="text-base font-bold text-white mb-2">Smart Alerts</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">Price watchers, break-even crossing, tax-free anniversary, portfolio milestones, and P&L delta watchers.</p>
+        </div>
+
+        <div class="card-hover bg-navy-light border border-border/30 rounded-xl p-6">
+          <div class="feature-icon bg-coral/10 text-coral mb-4">&#128200;</div>
+          <h3 class="text-base font-bold text-white mb-2">FIFO / LIFO Sells</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">Record sells with automatic allocation to holdings. Per-sale P&L, realised vs unrealised breakdown, tax report CSV.</p>
+        </div>
+
+        <div class="card-hover bg-navy-light border border-border/30 rounded-xl p-6">
+          <div class="feature-icon bg-mint/10 text-mint mb-4">&#128274;</div>
+          <h3 class="text-base font-bold text-white mb-2">Privacy & Security</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">Biometric + PIN lock, privacy mode to hide values, JSON backup/restore. Nothing ever leaves your phone.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- More Features (compact list) -->
+  <section class="px-6 py-12">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-xs font-bold tracking-[0.2em] text-gold uppercase text-center mb-8">And More</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3 text-sm text-gray-400">
+        <div class="bg-navy-light/50 border border-border/20 rounded-lg px-4 py-3">Multi-currency (EUR/USD/EGP)</div>
+        <div class="bg-navy-light/50 border border-border/20 rounded-lg px-4 py-3">Gram &amp; Troy Oz display</div>
+        <div class="bg-navy-light/50 border border-border/20 rounded-lg px-4 py-3">Background price fetch</div>
+        <div class="bg-navy-light/50 border border-border/20 rounded-lg px-4 py-3">Buy More simulator</div>
+        <div class="bg-navy-light/50 border border-border/20 rounded-lg px-4 py-3">Sell simulator</div>
+        <div class="bg-navy-light/50 border border-border/20 rounded-lg px-4 py-3">CSV &amp; JSON export</div>
+        <div class="bg-navy-light/50 border border-border/20 rounded-lg px-4 py-3">Gold purity labels</div>
+        <div class="bg-navy-light/50 border border-border/20 rounded-lg px-4 py-3">Price history chart</div>
+        <div class="bg-navy-light/50 border border-border/20 rounded-lg px-4 py-3">Compact &amp; Timeline views</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Links -->
+  <section class="px-6 py-16">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/mygoldfolio/privacy/" class="text-sm text-gray-400 hover:text-gold transition border border-border/30 px-5 py-2.5 rounded-lg">Privacy Policy</a>
+        <a href="/mygoldfolio/changelog/" class="text-sm text-gray-400 hover:text-gold transition border border-border/30 px-5 py-2.5 rounded-lg">Changelog</a>
+        <a href="/mygoldfolio/feedback/" class="text-sm text-gold hover:text-amber transition border border-gold/30 px-5 py-2.5 rounded-lg font-bold">Give Feedback</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-border/20 py-8 px-6">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted">
+      <p>&copy; 2026 SmartDailyApps. All rights reserved.</p>
+      <div class="flex gap-6">
+        <a href="/" class="hover:text-gold transition">Home</a>
+        <a href="/mygoldfolio/privacy/" class="hover:text-gold transition">Privacy</a>
+        <a href="/mygoldfolio/changelog/" class="hover:text-gold transition">Changelog</a>
+        <a href="/contact/" class="hover:text-gold transition">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

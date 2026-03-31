@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartDailyApps — Thoughtful Android Apps</title>
+  <meta name="description" content="Independent Android studio. Crafting personal finance tools that respect your privacy." />
+  <meta property="og:title" content="SmartDailyApps" />
+  <meta property="og:description" content="Thoughtful Android apps — privacy-first, offline-first." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="/images/icon.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#0F0F1A',
+            'navy-light': '#1A1A2E',
+            card: '#16213E',
+            border: '#1E3A5C',
+            gold: '#D4A843',
+            amber: '#FFE27A',
+            mint: '#00D68F',
+            coral: '#FF4757',
+            muted: '#666677',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    .gold-glow { text-shadow: 0 0 40px rgba(212,168,67,0.3); }
+    .card-hover { transition: transform 0.2s, box-shadow 0.2s; }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(212,168,67,0.15); }
+  </style>
+</head>
+<body class="bg-navy text-gray-200 min-h-screen flex flex-col">
+
+  <!-- Nav -->
+  <nav class="border-b border-border/30 backdrop-blur-sm bg-navy/80 sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <span class="text-lg font-extrabold text-white">Smart<span class="text-gold">Daily</span>Apps</span>
+      </a>
+      <div class="flex items-center gap-6 text-sm">
+        <a href="/mygoldfolio/" class="text-gray-400 hover:text-gold transition">MyGoldFolio</a>
+        <a href="/contact/" class="text-gray-400 hover:text-gold transition">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="flex-1 flex flex-col items-center justify-center text-center px-6 py-24">
+    <p class="text-gold text-xs font-bold tracking-[0.25em] uppercase mb-6">Independent Android Studio</p>
+    <h1 class="text-4xl md:text-6xl font-black text-white leading-tight mb-6 gold-glow">
+      Thoughtful Apps,<br/>Built for You
+    </h1>
+    <p class="text-gray-400 text-lg max-w-xl mb-12">
+      Privacy-first tools for everyday life. No accounts, no cloud, no tracking. Your data stays on your device.
+    </p>
+
+    <!-- App Card -->
+    <a href="/mygoldfolio/" class="card-hover block max-w-sm w-full bg-navy-light border border-border/40 rounded-2xl overflow-hidden">
+      <div class="h-1 bg-gradient-to-r from-gold to-amber"></div>
+      <div class="p-6 flex items-center gap-4">
+        <img src="/images/icon.png" alt="MyGoldFolio icon" class="w-16 h-16 rounded-2xl" />
+        <div class="text-left">
+          <h2 class="text-lg font-extrabold text-white">MyGoldFolio</h2>
+          <p class="text-sm text-muted">Gold investment tracker</p>
+          <div class="flex items-center gap-2 mt-2">
+            <span class="text-xs bg-gold/15 text-gold px-2 py-0.5 rounded-full font-bold">Android</span>
+            <span class="text-xs bg-mint/15 text-mint px-2 py-0.5 rounded-full font-bold">Free</span>
+          </div>
+        </div>
+      </div>
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-border/20 py-8 px-6">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted">
+      <p>&copy; 2026 SmartDailyApps. All rights reserved.</p>
+      <div class="flex gap-6">
+        <a href="/mygoldfolio/privacy/" class="hover:text-gold transition">Privacy</a>
+        <a href="/mygoldfolio/changelog/" class="hover:text-gold transition">Changelog</a>
+        <a href="/contact/" class="hover:text-gold transition">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
