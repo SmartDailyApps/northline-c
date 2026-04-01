@@ -8,7 +8,9 @@
   <meta property="og:title" content="SmartDailyApps" />
   <meta property="og:description" content="Thoughtful Android apps — privacy-first, offline-first." />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="/images/g3.png" />
   <link rel="icon" href="/images/icon.png" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -62,7 +64,7 @@
     </p>
 
     <!-- App Card -->
-    <a href="/mygoldfolio/" class="card-hover block max-w-sm w-full bg-navy-light border border-border/40 rounded-2xl overflow-hidden">
+    <a href="/mygoldfolio/" class="card-hover block max-w-sm w-full bg-navy-light border border-border/40 rounded-2xl overflow-hidden" data-aos="fade-up">
       <div class="h-1 bg-gradient-to-r from-gold to-amber"></div>
       <div class="p-6 flex items-center gap-4">
         <img src="/images/icon.png" alt="MyGoldFolio icon" class="w-16 h-16 rounded-2xl" />
@@ -90,5 +92,7 @@
     </div>
   </footer>
 
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init({ duration: 800, once: true });</script>
 </body>
 </html>
