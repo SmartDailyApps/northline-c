@@ -539,19 +539,24 @@
       <div class="border-t border-border/20 pt-8 mt-2">
         <p class="text-sm text-gray-300 font-semibold mb-1">Get notified at launch</p>
         <p class="text-xs text-muted mb-5">Leave your email and we'll notify you the moment MyGoldFolio is on Google Play.</p>
-        <!-- TODO: Replace YOUR_FORM_ID with your Formspree form ID from https://formspree.io -->
-        <form id="notify-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST"
-              class="flex flex-col sm:flex-row gap-3 max-w-sm mx-auto">
-          <input type="email" name="email" placeholder="your@email.com" required
-                 class="flex-1 bg-navy-light border border-border/40 text-gray-200 text-sm px-4 py-2.5 rounded-xl focus:outline-none focus:border-gold/50 placeholder-muted" />
-          <button type="submit"
-                  class="bg-gold text-navy font-bold px-5 py-2.5 rounded-xl hover:bg-amber transition text-sm whitespace-nowrap">
+
+        <div data-fs-success class="hidden text-sm text-mint font-semibold mt-4">
+          <ion-icon name="checkmark-circle-outline" style="vertical-align:middle;margin-right:4px;"></ion-icon>You're on the list!
+        </div>
+        <div data-fs-error class="hidden text-xs text-red-400 mb-2"></div>
+
+        <form id="notify-form" class="flex flex-col sm:flex-row gap-3 max-w-sm mx-auto">
+          <div class="flex-1">
+            <input type="email" name="email" placeholder="your@email.com" required
+                   data-fs-field
+                   class="w-full bg-navy-light border border-border/40 text-gray-200 text-sm px-4 py-2.5 rounded-xl focus:outline-none focus:border-gold/50 placeholder-muted" />
+            <span data-fs-error="email" class="text-xs text-red-400 mt-1 block"></span>
+          </div>
+          <button type="submit" data-fs-submit-btn
+                  class="bg-gold text-navy font-bold px-5 py-2.5 rounded-xl hover:bg-amber transition text-sm whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed">
             Notify Me
           </button>
         </form>
-        <p id="notify-success" class="hidden text-sm text-mint mt-4 font-semibold">
-          <ion-icon name="checkmark-circle-outline" style="vertical-align:middle;margin-right:4px;"></ion-icon>You're on the list!
-        </p>
       </div>
     </div>
   </section>
@@ -676,23 +681,12 @@
     scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   </script>
 
-  <!-- Email capture JS -->
+  <!-- Formspree Ajax (email capture) -->
   <script>
-    const notifyForm = document.getElementById('notify-form');
-    if (notifyForm) {
-      notifyForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const data = new FormData(notifyForm);
-        try {
-          const res = await fetch(notifyForm.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
-          if (res.ok) {
-            notifyForm.style.display = 'none';
-            document.getElementById('notify-success').classList.remove('hidden');
-          }
-        } catch (_) {}
-      });
-    }
+    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+    formspree('initForm', { formElement: '#notify-form', formId: 'mpqolryl' });
   </script>
+  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
 </body>
 </html>
