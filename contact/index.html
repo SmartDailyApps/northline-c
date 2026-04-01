@@ -7,6 +7,7 @@
   <meta name="description" content="Get in touch with SmartDailyApps." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="icon" href="/images/icon.png" />
+  <link rel="canonical" href="https://smartdailyapps.github.io/contact/" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -23,6 +24,7 @@
       }
     }
   </script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <style>body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }</style>
 </head>
 <body class="bg-navy text-gray-200 min-h-screen flex flex-col">
@@ -37,17 +39,49 @@
   </nav>
 
   <main class="flex-1 flex items-center justify-center px-6 py-20">
-    <div class="text-center max-w-md">
+    <div class="text-center max-w-md w-full">
       <h1 class="text-3xl font-black text-white mb-4">Get in Touch</h1>
       <p class="text-sm text-gray-400 mb-8 leading-relaxed">
         Questions, bug reports, partnership inquiries, or just want to say hello?
       </p>
+
+      <div data-fs-success class="hidden text-sm text-mint font-semibold mb-6">
+        <ion-icon name="checkmark-circle-outline" style="vertical-align:middle;margin-right:4px;"></ion-icon>Message sent! We'll get back to you soon.
+      </div>
+      <div data-fs-error class="hidden text-xs text-red-400 mb-4"></div>
+
+      <form id="contact-form" class="text-left space-y-4 mb-8">
+        <div>
+          <label for="name" class="text-xs text-gray-400 mb-1 block">Name</label>
+          <input type="text" id="name" name="name" required data-fs-field
+                 class="w-full bg-navy-light border border-border/40 text-gray-200 text-sm px-4 py-2.5 rounded-xl focus:outline-none focus:border-gold/50 placeholder-muted" />
+          <span data-fs-error="name" class="text-xs text-red-400 mt-1 block"></span>
+        </div>
+        <div>
+          <label for="email" class="text-xs text-gray-400 mb-1 block">Email</label>
+          <input type="email" id="email" name="email" required data-fs-field
+                 class="w-full bg-navy-light border border-border/40 text-gray-200 text-sm px-4 py-2.5 rounded-xl focus:outline-none focus:border-gold/50 placeholder-muted" />
+          <span data-fs-error="email" class="text-xs text-red-400 mt-1 block"></span>
+        </div>
+        <div>
+          <label for="message" class="text-xs text-gray-400 mb-1 block">Message</label>
+          <textarea id="message" name="message" rows="4" required data-fs-field
+                    class="w-full bg-navy-light border border-border/40 text-gray-200 text-sm px-4 py-2.5 rounded-xl focus:outline-none focus:border-gold/50 placeholder-muted resize-none"></textarea>
+          <span data-fs-error="message" class="text-xs text-red-400 mt-1 block"></span>
+        </div>
+        <button type="submit" data-fs-submit-btn
+                class="w-full bg-gold text-navy font-bold px-6 py-3 rounded-xl hover:bg-amber transition text-sm disabled:opacity-50 disabled:cursor-not-allowed">
+          Send Message
+        </button>
+      </form>
+
+      <p class="text-xs text-muted mb-3">Or email directly:</p>
       <a href="mailto:smartdailyapps@gmail.com"
-         class="inline-flex items-center gap-3 bg-gold/10 border border-gold/30 text-gold font-bold px-8 py-4 rounded-xl hover:bg-gold/20 transition text-sm">
-        <span class="text-lg">&#9993;</span>
+         class="inline-flex items-center gap-2 text-gold hover:text-amber transition text-sm">
+        <span>&#9993;</span>
         smartdailyapps@gmail.com
       </a>
-      <p class="text-xs text-muted mt-8">We typically respond within 24 hours.</p>
+      <p class="text-xs text-muted mt-6">We typically respond within 24 hours.</p>
     </div>
   </main>
 
@@ -60,5 +94,12 @@
       </div>
     </div>
   </footer>
+
+  <!-- Formspree Ajax -->
+  <script>
+    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+    formspree('initForm', { formElement: '#contact-form', formId: 'mpqolryl' });
+  </script>
+  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
