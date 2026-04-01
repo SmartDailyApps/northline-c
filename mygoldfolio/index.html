@@ -9,7 +9,13 @@
   <meta property="og:description" content="Track gold holdings with live prices, P&L, tax countdown, smart scenarios. 100% offline." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/images/g3.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MyGoldFolio — Gold Investment Tracker" />
+  <meta name="twitter:description" content="Track gold holdings with live prices, P&L, tax countdown, smart scenarios. 100% offline." />
+  <meta name="twitter:image" content="/images/g3.png" />
   <link rel="icon" href="/images/icon.png" />
+  <link rel="apple-touch-icon" href="/images/icon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -33,12 +39,12 @@
     }
   </script>
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
     .gold-glow { text-shadow: 0 0 40px rgba(212,168,67,0.4); }
 
     /* Phone mockup */
     @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
-    .phone-float { animation: float 4s ease-in-out infinite; }
+    .phone-float { animation: float 4s ease-in-out infinite; position: relative; z-index: 1; }
     .phone-frame {
       width: 220px; height: 440px; border-radius: 36px;
       border: 6px solid #2a2a40;
@@ -49,7 +55,15 @@
       content:''; position:absolute; top:10px; left:50%; transform:translateX(-50%);
       width:60px; height:10px; background:#0F0F1A; border-radius:6px; z-index:10;
     }
-    .phone-frame img { width:100%; height:100%; object-fit:cover; }
+    .phone-frame img, .phone-frame video { width:100%; height:100%; object-fit:cover; }
+
+    /* Radial glow behind hero phone */
+    .phone-glow {
+      position: absolute; width: 340px; height: 340px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(212,168,67,0.22) 0%, transparent 70%);
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+      pointer-events: none; z-index: 0;
+    }
 
     /* Gallery thumbnail phone frames */
     .gallery-frame {
@@ -83,6 +97,15 @@
     }
     .cta-pulse { animation: pulse-ring 2s ease-out infinite; }
 
+    /* Sticky CTA */
+    #sticky-cta {
+      transition: opacity 0.3s, transform 0.3s;
+      opacity: 0; transform: translateY(10px); pointer-events: none;
+    }
+    #sticky-cta.visible {
+      opacity: 1; transform: translateY(0); pointer-events: auto;
+    }
+
     /* Lightbox */
     #lightbox {
       display: none; position: fixed; inset: 0;
@@ -105,7 +128,7 @@
       border: none; color: white; font-size: 2rem; cursor: pointer; line-height: 1;
     }
 
-    /* Feature row icon circle */
+    /* Feature row icon */
     .feat-icon {
       width: 52px; height: 52px; border-radius: 16px;
       display: flex; align-items: center; justify-content: center; flex-shrink: 0;
@@ -121,17 +144,17 @@
       <a href="/" class="flex items-center gap-3">
         <span class="text-lg font-extrabold text-white">Smart<span class="text-gold">Daily</span>Apps</span>
       </a>
-      <div class="flex items-center gap-6 text-sm">
+      <div class="flex items-center gap-5 text-sm">
         <a href="/mygoldfolio/" class="text-gold font-bold">MyGoldFolio</a>
-        <a href="/mygoldfolio/feedback/" class="text-gray-400 hover:text-gold transition">Feedback</a>
-        <a href="/contact/" class="text-gray-400 hover:text-gold transition">Contact</a>
+        <a href="/mygoldfolio/feedback/" class="text-gray-400 hover:text-gold transition hidden sm:inline">Feedback</a>
+        <a href="/contact/" class="text-gray-400 hover:text-gold transition hidden sm:inline">Contact</a>
+        <a href="#download" class="bg-gold text-navy font-bold px-4 py-2 rounded-lg hover:bg-amber transition text-sm">Get App</a>
       </div>
     </div>
   </nav>
 
   <!-- Hero -->
   <section class="relative overflow-hidden">
-    <!-- Background image + overlay -->
     <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/g1.png');"></div>
     <div class="absolute inset-0" style="background: rgba(15,15,26,0.78);"></div>
 
@@ -139,7 +162,12 @@
 
       <!-- Text column -->
       <div class="flex-1 text-center md:text-left">
-        <img src="/images/icon.png" alt="MyGoldFolio" class="w-16 h-16 rounded-2xl mb-6 shadow-lg shadow-gold/20 mx-auto md:mx-0" />
+        <div class="flex items-center gap-3 justify-center md:justify-start mb-5">
+          <img src="/images/icon.png" alt="MyGoldFolio" class="w-14 h-14 rounded-2xl shadow-lg shadow-gold/20" />
+          <span class="inline-flex items-center gap-1.5 text-xs bg-gold/15 text-gold border border-gold/20 px-2.5 py-1 rounded-full font-semibold">
+            <ion-icon name="checkmark-circle-outline"></ion-icon>&nbsp;v1.8.2 — Latest
+          </span>
+        </div>
         <h1 class="text-4xl md:text-5xl font-black text-white leading-tight mb-4 gold-glow">
           Track Every Gram<br/>of Gold You Own
         </h1>
@@ -168,14 +196,17 @@
           <a href="#features" class="cta-pulse inline-flex items-center gap-2 bg-gold text-navy font-bold px-7 py-3.5 rounded-xl hover:bg-amber transition text-sm">
             Explore Features ↓
           </a>
-          <a href="#gallery" class="inline-flex items-center gap-2 border border-gold/50 text-gold font-bold px-7 py-3.5 rounded-xl hover:bg-gold/10 transition text-sm">
-            View Gallery
+          <a href="#download" class="inline-flex items-center gap-2 border border-gold/50 text-gold font-bold px-7 py-3.5 rounded-xl hover:bg-gold/10 transition text-sm">
+            <ion-icon name="logo-google-playstore"></ion-icon> Get App
           </a>
         </div>
       </div>
 
       <!-- Phone mockup column (hidden on mobile) -->
       <div class="hidden md:flex flex-col items-center relative" style="min-width:260px;">
+        <!-- Radial glow -->
+        <div class="phone-glow"></div>
+
         <!-- Particles -->
         <span class="particle" style="left:20px; top:60px; animation-duration:3.5s; animation-delay:0s;"></span>
         <span class="particle" style="left:200px; top:30px; animation-duration:4.2s; animation-delay:0.6s;"></span>
@@ -188,17 +219,46 @@
 
         <div class="phone-float">
           <div class="phone-frame">
-            <img src="/images/s1.jpg" alt="MyGoldFolio Dashboard" loading="eager" />
+            <video autoplay muted loop playsinline poster="/images/s1.jpg"
+              style="width:100%;height:100%;object-fit:cover;">
+              <source src="/images/onboarding.mp4" type="video/mp4" />
+            </video>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Stats strip -->
+  <div class="border-y border-border/20 bg-navy-light/20 px-6 py-5" data-aos="fade-up">
+    <div class="max-w-5xl mx-auto flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-gray-400">
+      <span><span class="text-white font-bold">3</span> built-in price sources</span>
+      <span class="text-border hidden sm:inline">·</span>
+      <span><span class="text-white font-bold">EUR · USD · EGP</span> display</span>
+      <span class="text-border hidden sm:inline">·</span>
+      <span><span class="text-white font-bold">Android</span> 10+</span>
+      <span class="text-border hidden sm:inline">·</span>
+      <span><span class="text-white font-bold">100%</span> offline</span>
+      <span class="text-border hidden sm:inline">·</span>
+      <span class="text-gold font-bold">Free forever</span>
+    </div>
+  </div>
+
+  <!-- G4 divider -->
+  <img src="/images/g4.png" alt="" aria-hidden="true" class="w-full h-auto" style="max-height:70px; object-fit:cover; opacity:0.55;" />
+
   <!-- Feature Showcase -->
   <section id="features" class="px-6 py-6">
     <div class="max-w-5xl mx-auto">
-      <h2 class="text-xs font-bold tracking-[0.2em] text-gold uppercase text-center mb-4" data-aos="fade-up">Features</h2>
+
+      <!-- Heading -->
+      <div class="text-center mb-12 pt-6" data-aos="fade-up">
+        <p class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-3">Features</p>
+        <h2 class="text-3xl md:text-4xl font-black text-white mb-3">
+          Everything you need to<br/><span class="text-gold">track your gold</span>
+        </h2>
+        <p class="text-gray-400 max-w-md mx-auto">Six powerful modules. One lightweight app.</p>
+      </div>
 
       <!-- Row 1: Live Gold Price — phone LEFT, text RIGHT -->
       <div class="flex flex-col md:flex-row items-center gap-12 py-16 border-b border-border/20" data-aos="fade-right">
@@ -299,47 +359,86 @@
     </div>
   </section>
 
+  <!-- G4 divider -->
+  <img src="/images/g4.png" alt="" aria-hidden="true" class="w-full h-auto" style="max-height:70px; object-fit:cover; opacity:0.55;" />
+
   <!-- Screenshot Gallery -->
   <section id="gallery" class="px-6 py-16 bg-navy-light/30">
     <div class="max-w-5xl mx-auto">
       <h2 class="text-xs font-bold tracking-[0.2em] text-gold uppercase text-center mb-10" data-aos="fade-up">Gallery</h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
 
-        <div class="gallery-frame" data-lightbox data-index="0" data-aos="fade-up" data-aos-delay="0">
-          <img src="/images/s1.jpg" alt="Dashboard" loading="lazy" />
+        <div data-aos="fade-up" data-aos-delay="0">
+          <div class="gallery-frame" data-lightbox data-index="0">
+            <img src="/images/s1.jpg" alt="Dashboard" loading="lazy" />
+          </div>
+          <p class="text-xs text-center text-muted mt-2">Dashboard</p>
         </div>
-        <div class="gallery-frame" data-lightbox data-index="1" data-aos="fade-up" data-aos-delay="50">
-          <img src="/images/s2.jpg" alt="Privacy mode" loading="lazy" />
+        <div data-aos="fade-up" data-aos-delay="50">
+          <div class="gallery-frame" data-lightbox data-index="1">
+            <img src="/images/s2.jpg" alt="Privacy Mode" loading="lazy" />
+          </div>
+          <p class="text-xs text-center text-muted mt-2">Privacy Mode</p>
         </div>
-        <div class="gallery-frame" data-lightbox data-index="2" data-aos="fade-up" data-aos-delay="100">
-          <img src="/images/s3.jpg" alt="Portfolio — List" loading="lazy" />
+        <div data-aos="fade-up" data-aos-delay="100">
+          <div class="gallery-frame" data-lightbox data-index="2">
+            <img src="/images/s3.jpg" alt="Portfolio — List" loading="lazy" />
+          </div>
+          <p class="text-xs text-center text-muted mt-2">Portfolio List</p>
         </div>
-        <div class="gallery-frame" data-lightbox data-index="3" data-aos="fade-up" data-aos-delay="150">
-          <img src="/images/s4.jpg" alt="Portfolio — Compact" loading="lazy" />
+        <div data-aos="fade-up" data-aos-delay="150">
+          <div class="gallery-frame" data-lightbox data-index="3">
+            <img src="/images/s4.jpg" alt="Portfolio — Compact" loading="lazy" />
+          </div>
+          <p class="text-xs text-center text-muted mt-2">Portfolio Compact</p>
         </div>
-        <div class="gallery-frame" data-lightbox data-index="4" data-aos="fade-up" data-aos-delay="200">
-          <img src="/images/s5.jpg" alt="Sell modal" loading="lazy" />
+        <div data-aos="fade-up" data-aos-delay="200">
+          <div class="gallery-frame" data-lightbox data-index="4">
+            <img src="/images/s5.jpg" alt="Sell Tracking" loading="lazy" />
+          </div>
+          <p class="text-xs text-center text-muted mt-2">Sell Tracking</p>
         </div>
-        <div class="gallery-frame" data-lightbox data-index="5" data-aos="fade-up" data-aos-delay="250">
-          <img src="/images/s6.jpg" alt="Prices" loading="lazy" />
+        <div data-aos="fade-up" data-aos-delay="250">
+          <div class="gallery-frame" data-lightbox data-index="5">
+            <img src="/images/s6.jpg" alt="Prices" loading="lazy" />
+          </div>
+          <p class="text-xs text-center text-muted mt-2">Prices</p>
         </div>
-        <div class="gallery-frame" data-lightbox data-index="6" data-aos="fade-up" data-aos-delay="300">
-          <img src="/images/s7.jpg" alt="Scenarios" loading="lazy" />
+        <div data-aos="fade-up" data-aos-delay="300">
+          <div class="gallery-frame" data-lightbox data-index="6">
+            <img src="/images/s7.jpg" alt="Scenarios" loading="lazy" />
+          </div>
+          <p class="text-xs text-center text-muted mt-2">Scenarios</p>
         </div>
-        <div class="gallery-frame" data-lightbox data-index="7" data-aos="fade-up" data-aos-delay="350">
-          <img src="/images/s8.jpg" alt="Alerts" loading="lazy" />
+        <div data-aos="fade-up" data-aos-delay="350">
+          <div class="gallery-frame" data-lightbox data-index="7">
+            <img src="/images/s8.jpg" alt="Alerts" loading="lazy" />
+          </div>
+          <p class="text-xs text-center text-muted mt-2">Alerts</p>
         </div>
-        <div class="gallery-frame" data-lightbox data-index="8" data-aos="fade-up" data-aos-delay="400">
-          <img src="/images/s9.jpg" alt="Export" loading="lazy" />
+        <div data-aos="fade-up" data-aos-delay="400">
+          <div class="gallery-frame" data-lightbox data-index="8">
+            <img src="/images/s9.jpg" alt="Export" loading="lazy" />
+          </div>
+          <p class="text-xs text-center text-muted mt-2">Export</p>
         </div>
-        <div class="gallery-frame" data-lightbox data-index="9" data-aos="fade-up" data-aos-delay="450">
-          <img src="/images/s10.jpg" alt="Price Sources" loading="lazy" />
+        <div data-aos="fade-up" data-aos-delay="450">
+          <div class="gallery-frame" data-lightbox data-index="9">
+            <img src="/images/s10.jpg" alt="Price Sources" loading="lazy" />
+          </div>
+          <p class="text-xs text-center text-muted mt-2">Price Sources</p>
         </div>
-        <div class="gallery-frame" data-lightbox data-index="10" data-aos="fade-up" data-aos-delay="500">
-          <img src="/images/s11.jpg" alt="Onboarding" loading="lazy" />
+        <div data-aos="fade-up" data-aos-delay="500">
+          <div class="gallery-frame" data-lightbox data-index="10">
+            <img src="/images/s11.jpg" alt="Onboarding" loading="lazy" />
+          </div>
+          <p class="text-xs text-center text-muted mt-2">Onboarding</p>
         </div>
-        <div class="gallery-frame" data-lightbox data-index="11" data-aos="fade-up" data-aos-delay="550">
-          <img src="/images/s12.jpg" alt="Security" loading="lazy" />
+        <div data-aos="fade-up" data-aos-delay="550">
+          <div class="gallery-frame" data-lightbox data-index="11">
+            <img src="/images/s12.jpg" alt="Security" loading="lazy" />
+          </div>
+          <p class="text-xs text-center text-muted mt-2">Security</p>
         </div>
 
       </div>
@@ -384,8 +483,24 @@
     </div>
   </section>
 
+  <!-- Download CTA -->
+  <section id="download" class="px-6 py-20 text-center relative overflow-hidden">
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse at center, rgba(212,168,67,0.07) 0%, transparent 65%);"></div>
+    <div class="relative max-w-lg mx-auto" data-aos="fade-up">
+      <p class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-4">Download</p>
+      <h2 class="text-3xl font-black text-white mb-3">Ready to track your gold?</h2>
+      <p class="text-gray-400 mb-8 max-w-sm mx-auto">Free. Private. Always offline. No account required.</p>
+      <a href="https://play.google.com/store/apps/details?id=com.mygoldfolio.app"
+         target="_blank" rel="noopener noreferrer">
+        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+             alt="Get it on Google Play" class="h-16 mx-auto hover:opacity-90 transition" />
+      </a>
+      <p class="text-xs text-muted mt-5">Android 10+ &nbsp;·&nbsp; v1.8.2 &nbsp;·&nbsp; ~12 MB</p>
+    </div>
+  </section>
+
   <!-- Links -->
-  <section class="px-6 py-16">
+  <section class="px-6 pb-16">
     <div class="max-w-3xl mx-auto text-center">
       <div class="flex flex-wrap justify-center gap-4">
         <a href="/mygoldfolio/privacy/" class="text-sm text-gray-400 hover:text-gold transition border border-border/30 px-5 py-2.5 rounded-lg">Privacy Policy</a>
@@ -408,6 +523,12 @@
     </div>
   </footer>
 
+  <!-- Sticky CTA -->
+  <a id="sticky-cta" href="#download"
+     class="fixed bottom-6 right-6 z-40 bg-gold text-navy font-bold px-5 py-3 rounded-full shadow-lg shadow-gold/30 text-sm flex items-center gap-2">
+    <ion-icon name="logo-google-playstore"></ion-icon> Get App
+  </a>
+
   <!-- Lightbox -->
   <div id="lightbox">
     <button id="lb-close" aria-label="Close">&times;</button>
@@ -426,8 +547,9 @@
     AOS.init({ duration: 800, once: true, offset: 80 });
   </script>
 
-  <!-- Lightbox JS -->
+  <!-- Lightbox + Sticky CTA JS -->
   <script>
+    // Lightbox
     const lbImages = [
       '/images/s1.jpg','/images/s2.jpg','/images/s3.jpg','/images/s4.jpg',
       '/images/s5.jpg','/images/s6.jpg','/images/s7.jpg','/images/s8.jpg',
@@ -457,13 +579,18 @@
       if (e.key === 'ArrowRight') lbNext();
     });
 
-    // Touch swipe
     let lbTouchX = 0;
     lb.addEventListener('touchstart', e => { lbTouchX = e.touches[0].clientX; });
     lb.addEventListener('touchend', e => {
       const d = e.changedTouches[0].clientX - lbTouchX;
       if (Math.abs(d) > 50) { d < 0 ? lbNext() : lbPrev(); }
     });
+
+    // Sticky CTA
+    const stickyCta = document.getElementById('sticky-cta');
+    window.addEventListener('scroll', () => {
+      stickyCta.classList.toggle('visible', window.scrollY > 600);
+    }, { passive: true });
   </script>
 
 </body>
