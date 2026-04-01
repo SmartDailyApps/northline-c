@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Changelog — MyGoldFolio</title>
   <meta name="description" content="Release notes for every public version of MyGoldFolio." />
+  <meta property="og:title" content="Changelog — MyGoldFolio" />
+  <meta property="og:description" content="Release notes for every version of MyGoldFolio." />
+  <meta property="og:image" content="/images/g3.png" />
   <link rel="icon" href="/images/icon.png" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
       theme: {
         extend: {
           colors: {
@@ -22,7 +23,7 @@
       }
     }
   </script>
-  <style>body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }</style>
+  <style>body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }</style>
 </head>
 <body class="bg-navy text-gray-200 min-h-screen">
 
@@ -46,22 +47,53 @@
     <p class="text-sm text-muted mb-10">Release notes for every public version of MyGoldFolio</p>
 
     <!-- Placeholder until first store release -->
-    <div class="bg-navy-light rounded-xl border border-border/20 p-8 text-center">
-      <p class="text-sm text-muted mb-2">No releases yet.</p>
-      <p class="text-xs text-muted/60">The changelog will be updated when MyGoldFolio launches on Google Play.</p>
-    </div>
+    <div class="space-y-4">
 
-    <!-- When first store version ships, add entries here, newest first:
-    <div class="bg-navy-light rounded-xl border border-border/20 p-5 mb-4">
-      <div class="flex justify-between items-baseline mb-3">
-        <span class="text-sm font-extrabold text-gold">v2.0.0</span>
-        <span class="text-xs text-muted">April 2026</span>
+      <!-- v1.8.2 -->
+      <div class="bg-navy-light rounded-xl border border-border/20 p-5">
+        <div class="flex justify-between items-baseline mb-3">
+          <span class="text-sm font-extrabold text-gold">v1.8.2</span>
+          <span class="text-xs text-muted">April 2026</span>
+        </div>
+        <ul class="space-y-1.5 text-xs text-gray-400">
+          <li class="pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-gold">Per-holding sell redesign — each sell is now attached to a specific holding rather than drawn from a shared pool</li>
+          <li class="pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-gold">Partial-sell warning shown for physical item types (bar, coin, jewellery)</li>
+          <li class="pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-gold">Removed FIFO/LIFO pool allocation toggle from Settings (replaced by per-holding sell)</li>
+          <li class="pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-gold">Removed pool sell button from Portfolio header</li>
+          <li class="pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-gold">Sell history and realised P&amp;L now clearly tied to individual holdings</li>
+        </ul>
       </div>
-      <ul class="space-y-1.5 text-xs text-gray-400">
-        <li class="pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-gold">First public release on Google Play</li>
-      </ul>
+
+      <!-- v1.8.1 -->
+      <div class="bg-navy-light rounded-xl border border-border/20 p-5">
+        <div class="flex justify-between items-baseline mb-3">
+          <span class="text-sm font-extrabold text-gold">v1.8.1</span>
+          <span class="text-xs text-muted">March 2026</span>
+        </div>
+        <ul class="space-y-1.5 text-xs text-gray-400">
+          <li class="pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-gold">Persist section collapse state — expanded/collapsed state of all sections is now remembered across app restarts</li>
+          <li class="pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-gold">Configurable defaults for collapsible sections via developer constants</li>
+          <li class="pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-gold">Store migration v13 → v14</li>
+        </ul>
+      </div>
+
+      <!-- v1.8.0 -->
+      <div class="bg-navy-light rounded-xl border border-border/20 p-5">
+        <div class="flex justify-between items-baseline mb-3">
+          <span class="text-sm font-extrabold text-gold">v1.8.0</span>
+          <span class="text-xs text-muted">March 2026</span>
+        </div>
+        <ul class="space-y-1.5 text-xs text-gray-400">
+          <li class="pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-gold">Collapsible sections on Dashboard: Portfolio Overview, Sold Overview, Goals, Key Metrics, Tax Status, Price Trend</li>
+          <li class="pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-gold">Collapsible Holdings and Sold sections in Portfolio (list and compact views)</li>
+          <li class="pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-gold">Show-more for holdings lists with more than 5 entries</li>
+          <li class="pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-gold">Collapsible hero detail section in Prices tab</li>
+          <li class="pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-gold">Top-5 scenarios shown by default in Scenarios tab with expand button</li>
+          <li class="pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-gold">Removed redundant sold proceeds banner from Portfolio</li>
+        </ul>
+      </div>
+
     </div>
-    -->
 
     <hr class="border-border/20 my-10" />
     <p class="text-center text-xs text-muted">&copy; 2026 MyGoldFolio · <a href="/mygoldfolio/privacy/" class="text-gold hover:underline">Privacy Policy</a></p>

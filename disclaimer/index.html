@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Disclaimer — SmartDailyApps</title>
+  <title>Investment Disclaimer — SmartDailyApps</title>
+  <meta name="description" content="Investment disclaimer for MyGoldFolio. MyGoldFolio is a personal tracking tool, not financial advice." />
   <link rel="icon" href="/images/icon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config={theme:{extend:{colors:{navy:'#0F0F1A','navy-light':'#1A1A2E',border:'#1E3A5C',gold:'#D4A843',muted:'#666677'}}}}</script>
-  <style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;}</style>
+  <script>tailwind.config={theme:{extend:{colors:{navy:'#0F0F1A','navy-light':'#1A1A2E',border:'#1E3A5C',gold:'#D4A843',muted:'#666677',amber:'#FFE27A'}}}}</script>
+  <style>body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;}</style>
 </head>
 <body class="bg-navy text-gray-200 min-h-screen flex flex-col">
   <nav class="border-b border-border/30 bg-navy/80 sticky top-0 z-50">
@@ -16,17 +18,59 @@
       <a href="/" class="text-sm text-gray-400 hover:text-gold transition">← Home</a>
     </div>
   </nav>
-  <main class="flex-1 flex items-center justify-center px-6 py-20">
-    <div class="text-center max-w-md">
-      <h1 class="text-3xl font-black text-white mb-4">Disclaimer</h1>
-      <div class="bg-navy-light border border-border/20 rounded-xl p-8">
-        <p class="text-sm text-muted mb-2">Coming soon.</p>
-        <p class="text-xs text-muted/60">This page will be published before MyGoldFolio launches on Google Play.</p>
-      </div>
+
+  <main class="flex-1 max-w-3xl mx-auto px-6 py-12 w-full">
+    <h1 class="text-3xl font-black text-white mb-2">Investment Disclaimer</h1>
+    <p class="text-sm text-muted mb-6">Effective date: 1 April 2026 &middot; SmartDailyApps</p>
+
+    <!-- Prominent warning banner -->
+    <div class="bg-amber/10 border border-amber/30 rounded-xl p-5 mb-10 flex gap-3">
+      <span class="text-amber text-lg mt-0.5">⚠</span>
+      <p class="text-sm text-amber/90 leading-relaxed"><strong>MyGoldFolio is a personal portfolio tracker, not a financial adviser.</strong> Nothing in this app or on this website constitutes financial, investment, tax, or legal advice of any kind.</p>
+    </div>
+
+    <div class="space-y-8 text-sm text-gray-300 leading-relaxed">
+
+      <section>
+        <h2 class="text-base font-bold text-white mb-3">1. Not Financial Advice</h2>
+        <p>The MyGoldFolio application ("the App") and the SmartDailyApps website ("the Site") are provided solely for personal informational and record-keeping purposes. The App helps you track physical gold purchases you have already made. Nothing displayed in the App — including profit/loss figures, return percentages, break-even prices, tax countdowns, or scenario projections — constitutes a recommendation to buy, sell, or hold any asset.</p>
+      </section>
+
+      <section>
+        <h2 class="text-base font-bold text-white mb-3">2. Past Performance</h2>
+        <p>Historical price data and any calculated returns shown in the App reflect past performance only. Past performance is not a reliable indicator of future results. Gold prices can fall as well as rise, and you may get back less than you invested.</p>
+      </section>
+
+      <section>
+        <h2 class="text-base font-bold text-white mb-3">3. Your Responsibility</h2>
+        <p>You are solely responsible for any investment decisions you make. Before making any financial decisions involving gold or any other asset, you should seek independent advice from a qualified financial adviser regulated in your jurisdiction. SmartDailyApps accepts no responsibility for any financial loss arising from your use of the App.</p>
+      </section>
+
+      <section>
+        <h2 class="text-base font-bold text-white mb-3">4. Price Data Accuracy</h2>
+        <p>Live gold prices displayed in the App are sourced from third-party APIs (GoldPrice.org, gold-api.com, Swissquote). Prices may be delayed, temporarily unavailable, or differ from real-time market prices available through licensed brokers and exchanges. SmartDailyApps makes no warranty as to the accuracy, completeness, or timeliness of any price data.</p>
+      </section>
+
+      <section>
+        <h2 class="text-base font-bold text-white mb-3">5. Tax Treatment</h2>
+        <p>The "tax-free countdown" feature in the App is based on a configurable holding period (default: 365 days). Tax treatment of gold investments varies by jurisdiction, individual circumstances, and applicable law. The App does not provide tax advice. You should consult a qualified tax professional for guidance specific to your situation. SmartDailyApps accepts no liability for any tax liability arising from your investments.</p>
+      </section>
+
+      <section>
+        <h2 class="text-base font-bold text-white mb-3">6. No Guarantee of Gains</h2>
+        <p>SmartDailyApps makes no representation that gold investments will be profitable. The scenarios, projections, and simulations shown in the App are hypothetical and for illustrative purposes only. They do not represent an assurance or guarantee of any outcome.</p>
+      </section>
+
+      <section>
+        <h2 class="text-base font-bold text-white mb-3">7. Contact</h2>
+        <p>Questions? Contact us at <a href="mailto:smartdailyapps@gmail.com" class="text-gold hover:underline">smartdailyapps@gmail.com</a>.</p>
+      </section>
+
     </div>
   </main>
-  <footer class="border-t border-border/20 py-8 px-6 text-center text-xs text-muted">
-    <p>&copy; 2026 SmartDailyApps</p>
+
+  <footer class="border-t border-border/20 py-8 px-6 text-center text-xs text-muted mt-12">
+    <p>&copy; 2026 SmartDailyApps &middot; <a href="/terms/" class="text-gold hover:underline">Terms of Use</a> &middot; <a href="/mygoldfolio/privacy/" class="text-gold hover:underline">Privacy Policy</a> &middot; <a href="/cookie-policy/" class="text-gold hover:underline">Cookie Policy</a></p>
   </footer>
 </body>
 </html>

@@ -15,6 +15,24 @@
   <meta name="twitter:image" content="/images/g3.png" />
   <link rel="icon" href="/images/icon.png" />
   <link rel="apple-touch-icon" href="/images/icon.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "MyGoldFolio",
+    "operatingSystem": "Android",
+    "applicationCategory": "FinanceApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    },
+    "description": "Personal Android gold investment tracker. Track physical gold purchases with live EUR/gram prices, break-even analysis, configurable tax-free countdown, smart what-if scenarios, per-holding sell tracking, and background price alerts. 100% offline — no cloud, no accounts.",
+    "url": "https://smartdailyapps.github.io/mygoldfolio/",
+    "applicationSubCategory": "Investment Tracking",
+    "screenshot": "https://smartdailyapps.github.io/images/s1.jpg"
+  }
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -116,12 +134,25 @@
       </a>
       <div class="flex items-center gap-4 text-sm">
         <a href="/mygoldfolio/" class="text-gold font-bold hidden sm:inline">MyGoldFolio</a>
+        <a href="/mygoldfolio/gallery/" class="text-gray-400 hover:text-gold transition hidden md:inline">Gallery</a>
         <a href="/mygoldfolio/feedback/" class="text-gray-400 hover:text-gold transition hidden md:inline">Feedback</a>
         <a href="/contact/" class="text-gray-400 hover:text-gold transition hidden md:inline">Contact</a>
+        <!-- Hamburger (mobile only) -->
+        <button id="hamburger" aria-label="Open menu" class="md:hidden text-gray-400 hover:text-gold transition p-1">
+          <ion-icon id="hamburger-icon" name="menu-outline" style="font-size:22px;"></ion-icon>
+        </button>
         <a href="#download" class="bg-gold text-navy font-bold px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg hover:bg-amber transition text-xs sm:text-sm whitespace-nowrap">Get App</a>
       </div>
     </div>
   </nav>
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden border-b border-border/20 bg-navy/95 md:hidden sticky top-[61px] z-40">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex flex-col gap-1 text-sm">
+      <a href="/mygoldfolio/gallery/" class="text-gray-300 hover:text-gold transition py-2 border-b border-border/10">Gallery</a>
+      <a href="/mygoldfolio/feedback/" class="text-gray-300 hover:text-gold transition py-2 border-b border-border/10">Feedback</a>
+      <a href="/contact/" class="text-gray-300 hover:text-gold transition py-2">Contact</a>
+    </div>
+  </div>
 
   <!-- Hero -->
   <section class="relative overflow-hidden">
@@ -201,9 +232,16 @@
 
   <!-- Stats strip -->
   <div class="border-y border-border/20 bg-navy-light/20 px-6 py-5" data-aos="fade-up">
-    <div class="max-w-5xl mx-auto flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-gray-400">
-      <span><span class="text-white font-bold">3</span> built-in price sources</span>
-      <span class="text-border hidden sm:inline">·</span>
+    <div class="max-w-5xl mx-auto flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-sm text-gray-400">
+      <!-- Live price widget (hidden until JS resolves) -->
+      <span id="live-price-stat" class="hidden items-center gap-2">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-mint opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-mint"></span>
+        </span>
+        Live&nbsp;<span id="live-price-val" class="text-white font-bold"></span>/g
+      </span>
+      <span class="text-border hidden sm:inline" id="live-sep" style="display:none!important">·</span>
       <span><span class="text-white font-bold">EUR · USD · EGP</span> display</span>
       <span class="text-border hidden sm:inline">·</span>
       <span><span class="text-white font-bold">Android</span> 10+</span>
@@ -367,6 +405,126 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="px-6 py-16" id="faq">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-10" data-aos="fade-up">
+        <p class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-3">FAQ</p>
+        <h2 class="text-2xl md:text-3xl font-black text-white">Common questions</h2>
+      </div>
+      <div class="space-y-3" data-aos="fade-up">
+
+        <details class="bg-navy-light/60 border border-border/20 rounded-xl group">
+          <summary class="flex items-center justify-between px-5 py-4 cursor-pointer list-none font-semibold text-sm text-gray-200 hover:text-gold transition select-none">
+            Is it really 100% offline?
+            <ion-icon name="chevron-down-outline" class="text-muted transition-transform duration-200 group-open:rotate-180 flex-shrink-0" style="font-size:16px;"></ion-icon>
+          </summary>
+          <p class="px-5 pb-4 text-sm text-gray-400 leading-relaxed">Yes. All your portfolio data is stored exclusively on your device using Android local storage. The app never sends your holdings, purchase prices, or personal data to any server — there are no accounts, no sync, and no cloud. The only outbound requests are live gold price fetches from free public APIs.</p>
+        </details>
+
+        <details class="bg-navy-light/60 border border-border/20 rounded-xl group">
+          <summary class="flex items-center justify-between px-5 py-4 cursor-pointer list-none font-semibold text-sm text-gray-200 hover:text-gold transition select-none">
+            What Android version do I need?
+            <ion-icon name="chevron-down-outline" class="text-muted transition-transform duration-200 group-open:rotate-180 flex-shrink-0" style="font-size:16px;"></ion-icon>
+          </summary>
+          <p class="px-5 pb-4 text-sm text-gray-400 leading-relaxed">Android 10 (API 29) or later. The app is built with React Native New Architecture and is optimised for modern Android. Background price alerts require Android 12+ for reliable scheduling via WorkManager.</p>
+        </details>
+
+        <details class="bg-navy-light/60 border border-border/20 rounded-xl group">
+          <summary class="flex items-center justify-between px-5 py-4 cursor-pointer list-none font-semibold text-sm text-gray-200 hover:text-gold transition select-none">
+            What currencies are supported?
+            <ion-icon name="chevron-down-outline" class="text-muted transition-transform duration-200 group-open:rotate-180 flex-shrink-0" style="font-size:16px;"></ion-icon>
+          </summary>
+          <p class="px-5 pb-4 text-sm text-gray-400 leading-relaxed">Euro (€), US Dollar ($), and Egyptian Pound (E£). All portfolio data is stored in EUR internally. The display layer converts using live exchange rates fetched alongside the gold price and cached for one hour. You can switch currencies at any time in Settings.</p>
+        </details>
+
+        <details class="bg-navy-light/60 border border-border/20 rounded-xl group">
+          <summary class="flex items-center justify-between px-5 py-4 cursor-pointer list-none font-semibold text-sm text-gray-200 hover:text-gold transition select-none">
+            What happens to my data if I uninstall?
+            <ion-icon name="chevron-down-outline" class="text-muted transition-transform duration-200 group-open:rotate-180 flex-shrink-0" style="font-size:16px;"></ion-icon>
+          </summary>
+          <p class="px-5 pb-4 text-sm text-gray-400 leading-relaxed">Your data will be deleted with the app — there is no backup server. Before uninstalling, use the <strong class="text-gray-200">Export &amp; Backup</strong> section in Settings to save a full JSON backup to your device. You can restore it after reinstalling.</p>
+        </details>
+
+        <details class="bg-navy-light/60 border border-border/20 rounded-xl group">
+          <summary class="flex items-center justify-between px-5 py-4 cursor-pointer list-none font-semibold text-sm text-gray-200 hover:text-gold transition select-none">
+            Is the app free?
+            <ion-icon name="chevron-down-outline" class="text-muted transition-transform duration-200 group-open:rotate-180 flex-shrink-0" style="font-size:16px;"></ion-icon>
+          </summary>
+          <p class="px-5 pb-4 text-sm text-gray-400 leading-relaxed">Yes — free to download with no ads, no subscriptions, and no in-app purchases. The three built-in price sources (GoldPrice.org, gold-api.com, Swissquote) require no API keys and have no usage limits for personal use.</p>
+        </details>
+
+        <details class="bg-navy-light/60 border border-border/20 rounded-xl group">
+          <summary class="flex items-center justify-between px-5 py-4 cursor-pointer list-none font-semibold text-sm text-gray-200 hover:text-gold transition select-none">
+            How accurate are the gold prices?
+            <ion-icon name="chevron-down-outline" class="text-muted transition-transform duration-200 group-open:rotate-180 flex-shrink-0" style="font-size:16px;"></ion-icon>
+          </summary>
+          <p class="px-5 pb-4 text-sm text-gray-400 leading-relaxed">Prices are sourced from three independent free APIs — GoldPrice.org, gold-api.com, and Swissquote's forex feed — with automatic fallthrough if one fails. Spot prices typically reflect near-real-time London/NY market data during market hours. Prices may be slightly delayed and are not suitable for trading decisions. See our <a href="/disclaimer/" class="text-gold hover:underline">Investment Disclaimer</a>.</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison: MyGoldFolio vs Spreadsheet -->
+  <section class="px-6 py-16" id="compare">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-10" data-aos="fade-up">
+        <p class="text-xs font-bold tracking-[0.2em] text-gold uppercase mb-3">Why not a spreadsheet?</p>
+        <h2 class="text-2xl md:text-3xl font-black text-white mb-3">What you can't do in a spreadsheet</h2>
+        <p class="text-gray-400 text-sm">A spreadsheet tracks numbers. MyGoldFolio tracks context.</p>
+      </div>
+      <div class="bg-navy-light/40 border border-border/20 rounded-2xl overflow-hidden" data-aos="fade-up">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-border/20">
+              <th class="text-left px-5 py-4 text-gray-400 font-semibold text-xs uppercase tracking-wide">Feature</th>
+              <th class="px-5 py-4 text-gold font-bold text-center text-xs uppercase tracking-wide">MyGoldFolio</th>
+              <th class="px-5 py-4 text-muted font-semibold text-center text-xs uppercase tracking-wide">Spreadsheet</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border/10">
+            <tr class="hover:bg-white/[0.02] transition">
+              <td class="px-5 py-3.5 text-gray-300">Live gold price (automatic)</td>
+              <td class="px-5 py-3.5 text-center text-mint font-bold">✓</td>
+              <td class="px-5 py-3.5 text-center text-muted">Manual</td>
+            </tr>
+            <tr class="hover:bg-white/[0.02] transition">
+              <td class="px-5 py-3.5 text-gray-300">Tax-free countdown per holding</td>
+              <td class="px-5 py-3.5 text-center text-mint font-bold">✓</td>
+              <td class="px-5 py-3.5 text-center text-muted">Formula hell</td>
+            </tr>
+            <tr class="hover:bg-white/[0.02] transition">
+              <td class="px-5 py-3.5 text-gray-300">Break-even price tracker</td>
+              <td class="px-5 py-3.5 text-center text-mint font-bold">✓</td>
+              <td class="px-5 py-3.5 text-center text-muted">Partial</td>
+            </tr>
+            <tr class="hover:bg-white/[0.02] transition">
+              <td class="px-5 py-3.5 text-gray-300">Per-holding sell tracking + realised P&amp;L</td>
+              <td class="px-5 py-3.5 text-center text-mint font-bold">✓</td>
+              <td class="px-5 py-3.5 text-center text-muted">Complex</td>
+            </tr>
+            <tr class="hover:bg-white/[0.02] transition">
+              <td class="px-5 py-3.5 text-gray-300">Background price alerts</td>
+              <td class="px-5 py-3.5 text-center text-mint font-bold">✓</td>
+              <td class="px-5 py-3.5 text-center text-coral font-bold">✗</td>
+            </tr>
+            <tr class="hover:bg-white/[0.02] transition">
+              <td class="px-5 py-3.5 text-gray-300">Smart what-if scenario generator</td>
+              <td class="px-5 py-3.5 text-center text-mint font-bold">✓</td>
+              <td class="px-5 py-3.5 text-center text-coral font-bold">✗</td>
+            </tr>
+            <tr class="hover:bg-white/[0.02] transition">
+              <td class="px-5 py-3.5 text-gray-300">100% offline &amp; private</td>
+              <td class="px-5 py-3.5 text-center text-mint font-bold">✓</td>
+              <td class="px-5 py-3.5 text-center text-muted">Cloud sync</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
   <!-- Download CTA -->
   <section id="download" class="px-6 py-20 text-center relative overflow-hidden">
     <div class="absolute inset-0" style="background: radial-gradient(ellipse at center, rgba(212,168,67,0.07) 0%, transparent 65%);"></div>
@@ -379,7 +537,26 @@
         <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
              alt="Get it on Google Play" class="h-16 mx-auto hover:opacity-90 transition" />
       </a>
-      <p class="text-xs text-muted mt-5">Android 10+ &nbsp;·&nbsp; v1.8.2 &nbsp;·&nbsp; ~12 MB</p>
+      <p class="text-xs text-muted mt-2 mb-8">Coming to Google Play soon &nbsp;·&nbsp; Android 10+ &nbsp;·&nbsp; v1.8.2 &nbsp;·&nbsp; ~12 MB</p>
+
+      <!-- Email capture -->
+      <div class="border-t border-border/20 pt-8 mt-2">
+        <p class="text-sm text-gray-300 font-semibold mb-1">Get notified at launch</p>
+        <p class="text-xs text-muted mb-5">Leave your email and we'll notify you the moment MyGoldFolio is on Google Play.</p>
+        <!-- TODO: Replace YOUR_FORM_ID with your Formspree form ID from https://formspree.io -->
+        <form id="notify-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST"
+              class="flex flex-col sm:flex-row gap-3 max-w-sm mx-auto">
+          <input type="email" name="email" placeholder="your@email.com" required
+                 class="flex-1 bg-navy-light border border-border/40 text-gray-200 text-sm px-4 py-2.5 rounded-xl focus:outline-none focus:border-gold/50 placeholder-muted" />
+          <button type="submit"
+                  class="bg-gold text-navy font-bold px-5 py-2.5 rounded-xl hover:bg-amber transition text-sm whitespace-nowrap">
+            Notify Me
+          </button>
+        </form>
+        <p id="notify-success" class="hidden text-sm text-mint mt-4 font-semibold">
+          <ion-icon name="checkmark-circle-outline" style="vertical-align:middle;margin-right:4px;"></ion-icon>You're on the list!
+        </p>
+      </div>
     </div>
   </section>
 
@@ -398,14 +575,22 @@
   <footer class="border-t border-border/20 py-8 px-6">
     <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted">
       <p>&copy; 2026 SmartDailyApps. All rights reserved.</p>
-      <div class="flex gap-6">
+      <div class="flex flex-wrap justify-center gap-5">
         <a href="/" class="hover:text-gold transition">Home</a>
-        <a href="/mygoldfolio/privacy/" class="hover:text-gold transition">Privacy</a>
+        <a href="/mygoldfolio/gallery/" class="hover:text-gold transition">Gallery</a>
+        <a href="/mygoldfolio/roadmap/" class="hover:text-gold transition">Roadmap</a>
         <a href="/mygoldfolio/changelog/" class="hover:text-gold transition">Changelog</a>
+        <a href="/mygoldfolio/privacy/" class="hover:text-gold transition">Privacy</a>
         <a href="/contact/" class="hover:text-gold transition">Contact</a>
       </div>
     </div>
   </footer>
+
+  <!-- Scroll-to-top button -->
+  <button id="scroll-top" aria-label="Scroll to top"
+     class="fixed bottom-5 left-4 sm:left-6 z-40 bg-navy-light border border-border/40 text-gold p-2.5 rounded-full shadow-lg opacity-0 pointer-events-none transition-opacity duration-300">
+    <ion-icon name="arrow-up-outline" style="font-size:18px;display:block;"></ion-icon>
+  </button>
 
   <!-- Sticky CTA -->
   <a id="sticky-cta" href="#download"
@@ -421,6 +606,45 @@
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 800, once: true, offset: 80 });
+  </script>
+
+  <!-- Mobile: skip video autoplay to save bandwidth -->
+  <script>
+    if (window.innerWidth < 768) {
+      const src = document.querySelector('.phone-frame source');
+      if (src) src.removeAttribute('src');
+    }
+  </script>
+
+  <!-- Live gold price widget -->
+  <script>
+    fetch('https://data-asg.goldprice.org/dbXRates/EUR')
+      .then(r => r.json())
+      .then(data => {
+        const eurG = (parseFloat(data.items[0].xauPrice) / 31.1034768).toFixed(2);
+        const el = document.getElementById('live-price-stat');
+        const val = document.getElementById('live-price-val');
+        if (el && val && eurG && isFinite(eurG)) {
+          val.textContent = '€' + eurG;
+          el.classList.remove('hidden');
+          el.style.display = 'inline-flex';
+        }
+      })
+      .catch(() => {});
+  </script>
+
+  <!-- Hamburger toggle -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    if (hamburger && mobileMenu) {
+      hamburger.addEventListener('click', () => {
+        const open = !mobileMenu.classList.contains('hidden');
+        mobileMenu.classList.toggle('hidden', open);
+        hamburgerIcon.setAttribute('name', open ? 'menu-outline' : 'close-outline');
+      });
+    }
   </script>
 
   <!-- Sticky CTA JS -->
@@ -443,6 +667,35 @@
       updateStickyCta();
     }, { threshold: 0.1 });
     observer.observe(document.getElementById('download'));
+  </script>
+
+  <!-- Scroll-to-top JS -->
+  <script>
+    const scrollTopBtn = document.getElementById('scroll-top');
+    window.addEventListener('scroll', () => {
+      const show = window.scrollY > 800;
+      scrollTopBtn.style.opacity = show ? '1' : '0';
+      scrollTopBtn.style.pointerEvents = show ? 'auto' : 'none';
+    }, { passive: true });
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+
+  <!-- Email capture JS -->
+  <script>
+    const notifyForm = document.getElementById('notify-form');
+    if (notifyForm) {
+      notifyForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const data = new FormData(notifyForm);
+        try {
+          const res = await fetch(notifyForm.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+          if (res.ok) {
+            notifyForm.style.display = 'none';
+            document.getElementById('notify-success').classList.remove('hidden');
+          }
+        } catch (_) {}
+      });
+    }
   </script>
 
 </body>
