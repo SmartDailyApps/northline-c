@@ -106,7 +106,7 @@
     }
   </style>
 </head>
-<body class="bg-navy text-gray-200">
+<body class="bg-navy text-gray-200" style="overflow-x: hidden;">
 
   <!-- Nav -->
   <nav class="border-b border-border/30 backdrop-blur-sm bg-navy/80 sticky top-0 z-50">
@@ -425,11 +425,24 @@
 
   <!-- Sticky CTA JS -->
   <script>
-    // Sticky CTA
     const stickyCta = document.getElementById('sticky-cta');
+    let scrolledEnough = false;
+    let downloadVisible = false;
+
+    function updateStickyCta() {
+      stickyCta.classList.toggle('visible', scrolledEnough && !downloadVisible);
+    }
+
     window.addEventListener('scroll', () => {
-      stickyCta.classList.toggle('visible', window.scrollY > 600);
+      scrolledEnough = window.scrollY > 600;
+      updateStickyCta();
     }, { passive: true });
+
+    const observer = new IntersectionObserver((entries) => {
+      downloadVisible = entries[0].isIntersecting;
+      updateStickyCta();
+    }, { threshold: 0.1 });
+    observer.observe(document.getElementById('download'));
   </script>
 
 </body>
