@@ -129,6 +129,22 @@
 
     <div class="version-block">
       <div class="version-header">
+        <span class="version-number">v2.0.5</span>
+        <span class="version-date">April 2026</span>
+      </div>
+      <ul>
+        <li>In-app styled permission prompt replaces system Alert.alert() for exact alarm permission — gold-themed modal with "Stay on schedule" wording</li>
+        <li>Removed "Background active" green status banner (duplicated CollapseSection subtitle)</li>
+        <li>"Alerts won't fire" amber banner now tappable — directly enables Background Fetch on tap</li>
+        <li>BG_DEBUG flag set to false — debug logs and test alarm button hidden for production</li>
+        <li>Background fetch error notifications now use sanitizeErrorMessage() — shows "No internet connection" instead of generic failure</li>
+        <li>Extracted sanitizeErrorMessage() to shared src/utils/errorMessages.ts (used by both foreground refresh and BG fetch)</li>
+        <li>CLAUDE.md optimized — removed ~30 lines of duplicated rules across sections</li>
+      </ul>
+    </div>
+
+    <div class="version-block">
+      <div class="version-header">
         <span class="version-number">v2.0.4</span>
         <span class="version-date">April 2026</span>
       </div>
