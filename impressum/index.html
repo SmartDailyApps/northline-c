@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impressum — SmartDailyApps</title>
+
+  <!-- Keep this page out of search engines, archives, snippets and bulk indexers -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate, noodp, max-snippet:0, max-image-preview:none, max-video-preview:0" />
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate" />
+  <meta name="googlebot-news" content="noindex, nofollow" />
+  <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet" />
+  <meta name="referrer" content="no-referrer" />
+
+  <link rel="icon" href="/images/logo-icon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: { ink: '#090C1A', panel: '#131D3D', line: '#2A3565', cyan: '#4DE2FF', pink: '#FF5FA2', muted: '#9AA6C9' },
+        fontFamily: { heading: ['Space Grotesk','Inter','sans-serif'], body: ['Inter','sans-serif'] }
+      } }
+    };
+  </script>
+  <style>body { font-family: 'Inter', sans-serif; }</style>
+</head>
+<body class="bg-ink text-gray-100 min-h-screen flex flex-col">
+  <nav class="sticky top-0 z-40 border-b border-line/50 bg-ink/85 backdrop-blur-sm">
+    <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="font-heading font-extrabold tracking-tight text-lg inline-flex items-center gap-2"><img src="/images/logo-icon.png" alt="SmartDailyApps logo" class="w-7 h-7 rounded-lg object-cover" /><span>Smart<span class="bg-gradient-to-r from-[#c6b6ff] via-[#8f73ff] to-[#6a4dff] bg-clip-text text-transparent">Daily</span>Apps</span></a>
+      <a href="/" class="text-sm text-gray-300 hover:text-cyan transition">&larr; Home</a>
+    </div>
+  </nav>
+
+  <main class="flex-1 max-w-4xl mx-auto px-6 py-12 w-full">
+    <p class="text-xs uppercase tracking-[0.2em] text-cyan font-bold mb-3">Rechtliches</p>
+    <h1 class="font-heading text-3xl md:text-4xl font-extrabold mb-8">Impressum</h1>
+
+    <div class="space-y-5 text-sm text-gray-300 leading-relaxed">
+      <section class="rounded-xl border border-line/60 bg-panel/70 p-5">
+        <h2 class="font-semibold text-white mb-2">Angaben gem&auml;&szlig; &sect; 5 DDG</h2>
+        <p>
+          Ayman Younis<br />
+          Holzmarktstr. 56<br />
+          10179 Berlin<br />
+          Deutschland
+        </p>
+      </section>
+
+      <section class="rounded-xl border border-line/60 bg-panel/70 p-5">
+        <h2 class="font-semibold text-white mb-2">Kontakt</h2>
+        <p>E-Mail: <a href="mailto:info@smartdailyapps.com" class="text-cyan hover:underline">info@smartdailyapps.com</a></p>
+      </section>
+
+      <section class="rounded-xl border border-line/60 bg-panel/70 p-5">
+        <h2 class="font-semibold text-white mb-2">Verbraucherstreitbeilegung</h2>
+        <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+      </section>
+
+      <section class="rounded-xl border border-line/60 bg-panel/70 p-5">
+        <h2 class="font-semibold text-white mb-2">Haftung f&uuml;r Inhalte und Links</h2>
+        <p>Die Inhalte dieser Seiten wurden mit gr&ouml;&szlig;ter Sorgfalt erstellt. F&uuml;r die Richtigkeit, Vollst&auml;ndigkeit und Aktualit&auml;t der Inhalte kann jedoch keine Gew&auml;hr &uuml;bernommen werden. F&uuml;r Inhalte externer Links sind ausschlie&szlig;lich deren Betreiber verantwortlich; zum Zeitpunkt der Verlinkung waren keine Rechtsverst&ouml;&szlig;e erkennbar.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="border-t border-line/50 py-8 px-6 text-xs text-muted">
+    <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>&copy; 2026 Smart<span class="bg-gradient-to-r from-[#c6b6ff] via-[#8f73ff] to-[#6a4dff] bg-clip-text text-transparent">Daily</span>Apps</p>
+      <div class="flex items-center gap-4">
+        <a href="/impressum/" class="hover:text-cyan transition">Impressum</a>
+        <a href="/terms/" class="hover:text-cyan transition">Terms</a>
+        <a href="/cookie-policy/" class="hover:text-cyan transition">Cookies</a>
+        <a href="/contact/" class="hover:text-cyan transition">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
