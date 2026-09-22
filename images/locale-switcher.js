@@ -1,6 +1,6 @@
 (function () {
-  var SUPPORTED = ['en', 'de', 'tr', 'fr', 'es', 'it', 'pt'];
-  var LABELS = { en: 'EN', de: 'DE', tr: 'TR', fr: 'FR', es: 'ES', it: 'IT', pt: 'PT-BR' };
+  var SUPPORTED = ['en', 'de', 'tr', 'fr', 'es', 'it', 'pt', 'ar'];
+  var LABELS = { en: 'EN', de: 'DE', tr: 'TR', fr: 'FR', es: 'ES', it: 'IT', pt: 'PT-BR', ar: 'العربية' };
   var STORAGE_KEY = 'sda_locale_pref_' + window.location.hostname;
 
   function withTrailingSlash(path) {
@@ -97,7 +97,7 @@
   label.style.color = '#A991FF';
 
   var select = document.createElement('select');
-  select.setAttribute('aria-label', 'Language');
+  select.setAttribute('aria-label', pathInfo.locale === 'ar' ? 'اللغة' : 'Language');
   select.style.background = 'transparent';
   select.style.color = '#E8EDFF';
   select.style.border = '0';

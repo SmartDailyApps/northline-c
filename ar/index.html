@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+
+<script src="/images/consent-analytics.js" data-site="studio" data-gtm-id="GTM-WZLLSLQZ" data-consent-key="sda_analytics_consent_v1"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartDailyApps — تطبيقات ذكية لحياتك اليومية</title>
+  <meta name="description" content="تطوّر SmartDailyApps تطبيقات ذكية تحافظ على الخصوصية أولاً وتبسّط تفاصيل حياتك اليومية." />
+  <meta property="og:title" content="SmartDailyApps" />
+  <meta property="og:description" content="تطبيقات ذكية لحياتك اليومية." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/images/sda-v3-og-all.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SmartDailyApps" />
+  <meta name="twitter:description" content="تطبيقات ذكية لحياتك اليومية." />
+  <meta name="twitter:image" content="/images/sda-v3-og-all.png" />
+  <link rel="icon" href="/images/logo-icon.png" />
+  <link rel="canonical" href="https://smartdailyapps.com/ar/" />
+  <link rel="alternate" hreflang="en" href="https://smartdailyapps.com/" />
+  <link rel="alternate" hreflang="de" href="https://smartdailyapps.com/de/" />
+  <link rel="alternate" hreflang="tr" href="https://smartdailyapps.com/tr/" />
+  <link rel="alternate" hreflang="fr" href="https://smartdailyapps.com/fr/" />
+  <link rel="alternate" hreflang="es" href="https://smartdailyapps.com/es/" />
+  <link rel="alternate" hreflang="it" href="https://smartdailyapps.com/it/" />
+  <link rel="alternate" hreflang="pt-BR" href="https://smartdailyapps.com/pt/" />
+  <link rel="alternate" hreflang="ar" href="https://smartdailyapps.com/ar/" />
+  <link rel="alternate" hreflang="x-default" href="https://smartdailyapps.com/" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#050817',
+            panel: '#0E1328',
+            line: '#202949',
+            violet: '#7B5BFF',
+            purple: '#6A4DFF',
+            lilac: '#A991FF',
+            muted: '#9AA4C5'
+          },
+          fontFamily: {
+            heading: ['Cairo', 'Space Grotesk', 'Inter', 'sans-serif'],
+            body: ['Cairo', 'Inter', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body { font-family: 'Cairo', 'Inter', sans-serif; }
+    .hero-bg {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(2, 4, 12, 0.34) 0%, rgba(2, 4, 12, 0.58) 56%, rgba(2, 4, 12, 0.74) 100%),
+        radial-gradient(circle at 50% 16%, rgba(123, 91, 255, 0.30), transparent 48%),
+        radial-gradient(circle at 88% 28%, rgba(169, 145, 255, 0.16), transparent 40%),
+        url('/images/sda-v4-hero-bg.png') center/cover no-repeat;
+    }
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(4, 7, 20, 0.42) 0%, rgba(4, 7, 20, 0.12) 44%, rgba(4, 7, 20, 0.42) 100%);
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .hero-title {
+      text-shadow: 0 10px 36px rgba(0, 0, 0, 0.38);
+    }
+    .hero-subline {
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.34);
+    }
+    .glass {
+      background: rgba(11, 15, 35, 0.58);
+      border: 1px solid rgba(121, 138, 202, 0.36);
+      backdrop-filter: blur(8px);
+    }
+    .brand-daily {
+      background: linear-gradient(90deg, #c6b6ff 0%, #8f73ff 50%, #6a4dff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .brand-gold { color: #E2B84B; }
+    .badge-star {
+      display: inline-flex;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1;
+      background: linear-gradient(90deg, #c6b6ff 0%, #8f73ff 50%, #6a4dff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .mobile-menu summary::-webkit-details-marker { display: none; }
+    .mobile-menu[open] .menu-open { display: none; }
+    .mobile-menu:not([open]) .menu-close { display: none; }
+    .scroll-cue {
+      position: relative;
+      width: 26px;
+      height: 44px;
+      border: 2px solid rgba(255, 255, 255, 0.40);
+      border-radius: 9999px;
+      margin: 28px auto 0;
+      animation: cueFloat 2.2s ease-in-out infinite;
+    }
+    .scroll-cue::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      width: 4px;
+      height: 8px;
+      background: #A991FF;
+      border-radius: 9999px;
+      transform: translateX(-50%);
+      animation: cueWheel 2.2s ease-in-out infinite;
+    }
+    @keyframes cueFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+    @keyframes cueWheel {
+      0% { transform: translate(-50%, 0); opacity: 0; }
+      24% { transform: translate(-50%, 0); opacity: 1; }
+      70% { transform: translate(-50%, 12px); opacity: 0.4; }
+      100% { transform: translate(-50%, 12px); opacity: 0; }
+    }
+  </style>
+</head>
+<body class="bg-ink text-gray-100 min-h-screen">
+  <nav class="sticky top-0 z-40 border-b border-line/40 bg-ink/80 backdrop-blur-sm">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/ar/" class="flex items-center gap-3">
+        <img src="/images/logo-icon.png" alt="شعار SmartDailyApps" class="w-8 h-8 rounded-xl object-cover" />
+        <span class="font-heading font-bold text-xl tracking-tight">Smart<span class="brand-daily">Daily</span>Apps</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm text-muted">
+        <a href="#apps" class="hover:text-white transition">التطبيقات</a>
+        <a href="#about" class="hover:text-white transition">عن الاستوديو</a>
+        <a href="/ar/contact/" class="hover:text-white transition">تواصل معنا</a>
+      </div>
+      <div class="flex items-center gap-2 sm:gap-3 text-sm">
+        <a href="https://mygoldfolio.de/ar/" class="hidden sm:inline-flex items-center gap-1 text-muted hover:text-white transition"><span>My<span class="brand-gold">Gold</span>Folio</span><ion-icon name="open-outline" aria-hidden="true"></ion-icon></a>
+        <details class="mobile-menu relative md:hidden">
+          <summary class="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-line/60 text-gray-200 hover:border-violet/60 hover:text-white transition cursor-pointer list-none">
+            <ion-icon name="menu-outline" class="menu-open text-xl"></ion-icon>
+            <ion-icon name="close-outline" class="menu-close text-xl"></ion-icon>
+          </summary>
+          <div class="absolute left-0 mt-2 w-56 rounded-xl border border-line/80 bg-ink/95 shadow-2xl shadow-black/60 backdrop-blur-md p-2 z-50 text-sm text-right">
+            <a href="#apps" class="block px-3 py-2 rounded-lg hover:bg-white/5">التطبيقات</a>
+            <a href="#about" class="block px-3 py-2 rounded-lg hover:bg-white/5">عن الاستوديو</a>
+            <a href="/ar/contact/" class="block px-3 py-2 rounded-lg hover:bg-white/5">تواصل معنا</a>
+            <a href="https://mygoldfolio.de/ar/" class="block px-3 py-2 rounded-lg hover:bg-white/5">My<span class="brand-gold">Gold</span>Folio</a>
+          </div>
+        </details>
+        <a href="https://mygoldfolio.de/ar/#download" class="px-3 sm:px-4 py-2 rounded-xl bg-purple hover:bg-violet transition font-semibold">احصل على التطبيق</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero-bg min-h-[78vh] md:min-h-[84vh] border-b border-line/40">
+    <div class="hero-content max-w-7xl mx-auto px-6 pt-12 pb-20 md:pt-14 md:pb-24 text-center">
+      <div class="inline-flex items-center gap-2 text-sm px-4 py-2 rounded-full glass mb-7">
+        <span class="badge-star" aria-hidden="true">✦</span>
+        نبتكر تطبيقات تلهمك
+      </div>
+      <h1 class="hero-title font-heading font-extrabold text-5xl md:text-7xl lg:text-8xl leading-[1.12] max-w-5xl mx-auto">
+        <span class="brand-gold">تطبيقات ذكية</span> لـ <span class="brand-daily">حياتك اليومية</span>
+      </h1>
+      <p class="hero-subline text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mt-7 leading-relaxed">
+        نبتكر منتجات وتطبيقات ذكية على الهواتف المحمولة لتبسيط الروتين اليومي، ودعم اتخاذ القرارات، مع الحفاظ على الخصوصية أولاً في صميم التصميم.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-3 mt-9">
+        <a href="https://mygoldfolio.de/ar/" class="px-6 py-3 rounded-xl bg-purple hover:bg-violet transition font-semibold inline-flex items-center gap-2">استكشف <span class="whitespace-nowrap">My<span class="text-[#E2B84B]">Gold</span>Folio</span><ion-icon name="arrow-back-outline"></ion-icon></a>
+        <a href="#apps" class="px-6 py-3 rounded-xl border border-line text-gray-200 hover:border-violet/60 transition">عرض تطبيقاتنا</a>
+      </div>
+      <a href="#apps" class="inline-flex" aria-label="التمرير إلى قسم التطبيقات">
+        <span class="scroll-cue"></span>
+      </a>
+    </div>
+  </header>
+
+  <section class="border-b border-line/40">
+    <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+      <div><p class="text-violet text-2xl md:text-3xl font-heading font-extrabold">الخصوصية أولاً</p><p class="text-muted mt-1">بياناتك محفوظة على جهازك دائمًا</p></div>
+      <div><p class="text-violet text-2xl md:text-3xl font-heading font-extrabold">متعدد اللغات</p><p class="text-muted mt-1">مصمم للمستخدمين حول العالم</p></div>
+      <div><p class="text-violet text-2xl md:text-3xl font-heading font-extrabold">محور اهتمامنا المستخدم</p><p class="text-muted mt-1">آراء وتجارب المستخدمين تقود التطوير</p></div>
+    </div>
+  </section>
+
+  <section id="apps" class="py-16 border-b border-line/40">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <h2 class="font-heading text-4xl md:text-5xl font-extrabold mb-3">مجموعة <span class="text-violet">تطبيقاتنا</span></h2>
+        <p class="text-muted text-lg">اكتشف مجموعتنا من التطبيقات المصممة بعناية واحترافية</p>
+      </div>
+
+      <article class="glass rounded-2xl overflow-hidden mb-6">
+        <div class="grid lg:grid-cols-2">
+          <img src="/images/sda-v3-a1-all.png" alt="تطبيق MyGoldFolio" class="w-full h-full object-cover min-h-[260px]" />
+          <div class="p-7 md:p-9 text-right">
+            <span class="inline-flex text-xs uppercase tracking-wide px-3 py-1 rounded-full bg-violet/20 text-lilac border border-violet/30 mb-4">التطبيق المميز</span>
+            <h3 class="font-heading text-4xl font-extrabold mb-3">My<span class="text-[#E2B84B]">Gold</span>Folio</h3>
+            <p class="text-muted leading-relaxed mb-5">اعرف قيمة محفظتك من المعادن الثمينة بنظرة واحدة. تتبّع حيازاتك من الذهب، الفضة، البلاتين، والبلاديوم مع أسعار فورية مباشرة، تنبيهات ذكية، ومتابعة الأرباح والخسائر — بخصوصية تامة وبلا حساب أو تخزين سحابي.</p>
+            <ul class="grid sm:grid-cols-2 gap-2 text-sm text-gray-200 mb-6">
+              <li class="inline-flex items-center gap-2"><ion-icon name="flash-outline"></ion-icon>أسعار فورية ولحظية</li>
+              <li class="inline-flex items-center gap-2"><ion-icon name="shield-outline"></ion-icon>آمن ويحفظ الخصوصية</li>
+              <li class="inline-flex items-center gap-2"><ion-icon name="globe-outline"></ion-icon>أسواق عالمية</li>
+              <li class="inline-flex items-center gap-2"><ion-icon name="notifications-outline"></ion-icon>تنبيهات ذكية</li>
+            </ul>
+            <a href="https://mygoldfolio.de/ar/" class="text-violet hover:text-lilac font-semibold inline-flex items-center gap-2">معرفة المزيد <ion-icon name="arrow-back-outline"></ion-icon></a>
+          </div>
+        </div>
+      </article>
+
+      <div class="grid md:grid-cols-2 gap-4 text-right">
+        <article class="glass rounded-2xl p-6 min-h-[140px] opacity-80">
+          <ion-icon name="flash-outline" class="text-violet text-xl mb-2"></ion-icon>
+          <h4 class="font-heading text-2xl font-bold mb-2">قريبًا</h4>
+          <p class="text-muted text-sm">أدوات إنتاجية جديدة لتحسين روتينك اليومي وتوفير الوقت.</p>
+        </article>
+        <article class="glass rounded-2xl p-6 min-h-[140px] opacity-80">
+          <ion-icon name="sparkles-outline" class="text-violet text-xl mb-2"></ion-icon>
+          <h4 class="font-heading text-2xl font-bold mb-2">قريبًا</h4>
+          <p class="text-muted text-sm">منتج لصحة الحياة اليومية يركز على الاستمرارية والوضوح الذهني.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="py-16">
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-9 items-start text-right">
+      <div>
+        <h2 class="font-heading text-5xl font-extrabold leading-tight mb-5">صُمم بـ <span class="text-violet">شغف</span> وهدف واضح</h2>
+        <p class="text-muted leading-relaxed mb-4">في SmartDailyApps، نؤمن بأن التكنولوجيا وُجدت لتمكين الناس. نبني تطبيقات عملية وأنيقة تحل مشكلات حقيقية وتصنع قيمة يومية ملموسة.</p>
+        <p class="text-muted leading-relaxed mb-6">كل ميزة تُبنى باهتمام فائق بالأداء العالي، والموثوقية، وبناء ثقة دائمة مع المستخدم.</p>
+        <div class="flex flex-wrap gap-2 text-xs">
+          <span class="px-3 py-1.5 rounded-full border border-line text-gray-200">تصميم يركز على المستخدم</span>
+          <span class="px-3 py-1.5 rounded-full border border-line text-gray-200">تركيز كامل على الخصوصية</span>
+          <span class="px-3 py-1.5 rounded-full border border-line text-gray-200">صُنع في ألمانيا</span>
+          <a href="https://mygoldfolio.de/ar/feedback/" class="px-3 py-1.5 rounded-full border border-line text-gray-200 hover:border-violet/60 transition">ملاحظات واقتراحات</a>
+        </div>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <article class="glass rounded-xl p-4"><ion-icon name="shield-checkmark-outline" class="text-violet text-xl mb-2"></ion-icon><h3 class="font-semibold mb-1">الخصوصية أولاً</h3><p class="text-sm text-muted">بياناتك تبقى على جهازك دائمًا وبشكل افتراضي.</p></article>
+        <article class="glass rounded-xl p-4"><ion-icon name="speedometer-outline" class="text-violet text-xl mb-2"></ion-icon><h3 class="font-semibold mb-1">سريع وموثوق</h3><p class="text-sm text-muted">أداء عالي الكفاءة مع تدفق بيانات مستقر.</p></article>
+        <article class="glass rounded-xl p-4"><ion-icon name="globe-outline" class="text-violet text-xl mb-2"></ion-icon><h3 class="font-semibold mb-1">انتشار عالمي</h3><p class="text-sm text-muted">منتجات موثوقة يعتمد عليها المستخدمون عبر دول متعددة.</p></article>
+        <article class="glass rounded-xl p-4"><ion-icon name="rocket-outline" class="text-violet text-xl mb-2"></ion-icon><h3 class="font-semibold mb-1">تطوير مستمر</h3><p class="text-sm text-muted">تحديثات دورية ترتكز على ملاحظات وآراء المستخدمين.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-line/50 py-10 px-6">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-7 text-sm text-right">
+      <div>
+        <div class="flex items-center gap-2 mb-3"><img src="/images/logo-icon.png" alt="شعار SmartDailyApps" class="w-7 h-7 rounded-lg object-cover" /><span class="font-heading font-bold">Smart<span class="brand-daily">Daily</span>Apps</span></div>
+        <p class="text-muted leading-relaxed">نبني تطبيقات ذكية وأنيقة تجعل حياتك اليومية أسهل وأكثر إنتاجية.</p>
+      </div>
+      <div>
+        <p class="uppercase text-xs tracking-[0.18em] text-gray-400 mb-3">روابط سريعة</p>
+        <div class="space-y-2 text-muted">
+          <a href="#apps" class="block hover:text-white">تطبيقاتنا</a>
+          <a href="#about" class="block hover:text-white">عن الاستوديو</a>
+          <a href="https://mygoldfolio.de/ar/" class="block hover:text-white">My<span class="text-[#E2B84B]">Gold</span>Folio</a>
+          <a href="/ar/contact/" class="block hover:text-white">تواصل معنا</a>
+        </div>
+      </div>
+      <div>
+        <p class="uppercase text-xs tracking-[0.18em] text-gray-400 mb-3">قانوني</p>
+        <div class="space-y-2 text-muted">
+          <a href="https://mygoldfolio.de/ar/privacy/" class="block hover:text-white">سياسة خصوصية التطبيق</a>
+          <a href="/ar/terms/" class="block hover:text-white">شروط الخدمة</a>
+          <a href="/ar/disclaimer/" class="block hover:text-white">إخلاء المسؤولية</a>
+          <a href="/ar/cookie-policy/" class="block hover:text-white">سياسة ملفات تعريف الارتباط</a>
+          <a href="/impressum/" class="block hover:text-white">بيانات النشر (Impressum)</a>
+        </div>
+      </div>
+      <div>
+        <p class="uppercase text-xs tracking-[0.18em] text-gray-400 mb-3">التواصل</p>
+        <div class="space-y-2 text-muted">
+          <a href="mailto:info@smartdailyapps.com" class="block hover:text-white">info@smartdailyapps.com</a>
+          <a href="https://x.com/MyGoldFolio" target="_blank" rel="noopener" aria-label="X (MyGoldFolio)" class="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-line/40 text-xl hover:text-white hover:border-violet/60 transition">
+            <ion-icon name="logo-x"></ion-icon>
+          </a>
+          <a href="https://www.facebook.com/MyGoldFolio/" target="_blank" rel="noopener" aria-label="Facebook (MyGoldFolio)" class="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-line/40 text-xl hover:text-white hover:border-violet/60 transition">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a>
+          <a href="https://www.instagram.com/mygoldfolio/" target="_blank" rel="noopener" aria-label="Instagram (MyGoldFolio)" class="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-line/40 text-xl hover:text-white hover:border-violet/60 transition">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/images/locale-switcher.js"></script>
+</body>
+</html>

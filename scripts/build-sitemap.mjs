@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const BASE = 'https://smartdailyapps.com';
 
-const locales = ['de', 'es', 'fr', 'it', 'pt', 'tr'];
+const locales = ['de', 'es', 'fr', 'it', 'pt', 'tr', 'ar'];
 const pages = ['', 'contact/', 'terms/', 'disclaimer/', 'cookie-policy/'];
 const rootOnly = ['impressum/'];
 
